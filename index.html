@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Restoran Padepokan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="loginPage" class="login-container">
+        <div class="login-wrapper">
+            <h1>Restoran Padepokan</h1>
+            <h2>Selamat Datang</h2>
+            <select id="userType">
+                <option value="">Pilih Tipe User</option>
+                <option value="admin">Admin</option>
+                <option value="user">Pengunjung</option>
+            </select>
+            <button onclick="login()" class="btn">Masuk</button>
+
+            <div class="project-watermark">
+                <h4>Proyek Akhir Dasar Sistem Informasi</h4>
+                <span class="team-member">Bibismi Akbar Afandi (3124510035)</span>
+                <span class="team-member">Gabriel Darren Axl Christian Susanto (3124510053)</span>
+                <div class="project-label">Restoran Padepokan Web Application</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminDashboard" style="display:none;" class="dashboard">
+        <div class="sidebar">
+            <h3>Menu Admin</h3>
+            <button onclick="showAddCategory()" class="btn">Tambah Kategori</button>
+            <button onclick="showAddMenu()" class="btn">Tambah Menu</button>
+            <button onclick="renderMenuManagement()" class="btn">Kelola Menu</button>
+            <button onclick="logout()" class="btn">Keluar</button>
+        </div>
+        <div class="content">
+            <div id="addCategoryForm" class="admin-form" style="display:none;">
+                <h3>Tambah Kategori Baru</h3>
+                <input type="text" id="newCategoryName" placeholder="Nama Kategori">
+                <button onclick="addCategory()" class="btn">Simpan Kategori</button>
+            </div>
+
+            <div id="addMenuForm" class="admin-form" style="display:none;">
+                <h3>Tambah Menu Baru</h3>
+                <input type="text" id="menuName" placeholder="Nama Menu">
+                <input type="number" id="menuPrice" placeholder="Harga Menu">
+                <select id="menuCategory">
+                    <option value="">Pilih Kategori</option>
+                </select>
+                <input type="file" id="menuImage" accept="image/*">
+                <button onclick="addMenu()" class="btn">Simpan Menu</button>
+            </div>
+
+            <div id="updateMenuForm" class="admin-form" style="display:none;">
+                <h3>Update Menu</h3>
+                <input type="hidden" id="updateMenuId">
+                <input type="text" id="updateMenuName" placeholder="Nama Menu">
+                <input type="number" id="updateMenuPrice" placeholder="Harga Menu">
+                <select id="updateMenuCategory">
+                    <option value="">Pilih Kategori</option>
+                </select>
+                <input type="file" id="updateMenuImage" accept="image/*">
+                <button onclick="updateMenu()" class="btn">Update Menu</button>
+            </div>
+
+            <div id="menuManagementSection" class="admin-form" style="display:none;">
+    
+            </div>
+        </div>
+    </div>
+
+    <div id="userDashboard" style="display:none;" class="dashboard">
+        <div class="sidebar">
+            <h1>Restoran Padepokan</h1>
+            <h3>Kategori Menu</h3>
+            <div id="categoryList"></div>
+            <button onclick="logout()" class="btn">Keluar</button>
+        </div>
+        <div class="content">
+            <div id="menuList" class="menu-grid"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
